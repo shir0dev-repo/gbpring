@@ -2,57 +2,63 @@
 
 If you've studied any CS course at George Brown Polytechnic, you can add yourself to the webring.
 
-## How to join (easy way)
+## How to join
 
-1. Go to [`sites.json`](sites.json) on GitHub
-2. Click the pencil icon to edit
-3. Add your entry at the bottom of the array:
+1. Fork this repository
+2. Open `sites.json` and add your entry at the bottom:
 
 ```json
 { "name": "Your Name", "year": 2026, "website": "https://yoursite.com" }
 ```
 
-4. Click "Propose changes" — GitHub handles the rest
+3. Commit and submit a pull request
 
-That's it. Once merged, your node will appear on the maple leaf and in the members list.
+Once merged, your node will appear on the maple leaf and in the members list.
 
-No need to clone, fork, or use git. Just edit the file in your browser.
+### Or edit directly (no git needed)
 
-## How to join (git users)
-
-1. Fork this repository
-2. Add your entry to `sites.json`
-3. Submit a pull request
+1. Go to [`sites.json`](sites.json) on GitHub
+2. Click the pencil icon to edit
+3. Add your entry at the bottom
+4. Click "Propose changes" - GitHub handles the rest
 
 ## While you're here
 
-Give the repo a star — it helps more GBP students find the ring.
+Give the repo a star - it helps more GBP students find the ring.
 
 ## Rules
 
-- **`name`** — your real name
-- **`year`** — your graduation year
-- **`website`** — your personal portfolio or site (must be live and accessible)
+- **`name`** - your real name
+- **`year`** - your graduation year
+- **`website`** - your personal portfolio or site (must be live and accessible)
 - Only add yourself, not other people
 - One entry per person
-- Only edit `sites.json` — do not modify any other files
+- Only edit `sites.json` - do not modify any other files
 - Your site must actually exist and load
 
-## Adding the webring to your site (optional)
+## Adding the webring to your site
 
-Paste this anywhere on your portfolio to link back to the ring:
+Once you're merged, add the GBP Huskies logo somewhere on your portfolio. It links back to gbp-ring.com so visitors can discover other members.
+
+<img src="assets/husky.svg" alt="GBP CS Webring" width="40" height="40" />
+
+Paste this anywhere in your HTML:
 
 ```html
-<a href="https://github.com/A-Shalchian/gbpring" target="_blank">
-  <img src="https://raw.githubusercontent.com/A-Shalchian/gbpring/main/assets/badge.svg" alt="GBP CS Webring" height="36" />
+<a href="https://gbp-ring.com" target="_blank">
+  <img src="https://gbp-ring.com/assets/husky.svg" alt="GBP CS Webring" width="40" height="40" />
 </a>
 ```
 
-Or if you prefer a text link:
+If your portfolio uses React/JSX:
 
-```html
-<a href="https://github.com/A-Shalchian/gbpring" target="_blank">GBP CS Webring</a>
+```jsx
+<a href="https://gbp-ring.com" target="_blank" rel="noopener noreferrer">
+  <img src="https://gbp-ring.com/assets/husky.svg" alt="GBP CS Webring" width={40} height={40} />
+</a>
 ```
+
+That's it - a small husky icon that links to the ring. Footer, sidebar, wherever you want.
 
 ## Questions?
 

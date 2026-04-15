@@ -4,20 +4,66 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>CS Webring</title>
+  <title>GBP CS Webring - George Brown Polytechnic Computer Science Webring by Arash Shalchian</title>
+  <meta name="description" content="A webring built by Arash Shalchian featuring the best CS students at George Brown Polytechnic. Discover student portfolios, connect with alumni, and join the ring." />
+  <meta name="author" content="Arash Shalchian" />
+  <meta name="theme-color" content="#0077c2" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://gbp-ring.com/" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="GBP CS Webring - George Brown Polytechnic" />
+  <meta property="og:description" content="A webring built by Arash Shalchian featuring the best CS students at George Brown Polytechnic. Discover student portfolios, connect with alumni, and join the ring." />
+  <meta property="og:url" content="https://gbp-ring.com/" />
+  <meta property="og:site_name" content="GBP CS Webring" />
+  <meta property="og:image" content="https://gbp-ring.com/assets/og-preview.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+
+  <meta name="twitter:title" content="GBP CS Webring - George Brown Polytechnic" />
+  <meta name="twitter:description" content="A webring built by Arash Shalchian featuring the best CS students at George Brown Polytechnic. Discover student portfolios and join the ring." />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="https://gbp-ring.com/assets/og-preview.png" />
 
   <link rel="icon" href="./assets/favicon.svg" type="image/svg+xml" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="./css/styles.css" />
 
-  <script src="https://d3js.org/d3.v7.min.js"></script>
+  <script src="https://d3js.org/d3.v7.min.js" defer></script>
 
   <script>
     const webringData = { sites: [] };
     const GOAL = 200;
   </script>
 
-  <script src="./javascript/d3-ring.js"></script>
+  <script src="./javascript/d3-ring.js" defer></script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "GBP CS Webring",
+    "url": "https://gbp-ring.com",
+    "description": "A webring built by Arash Shalchian featuring the best computer science students at George Brown Polytechnic. Discover student portfolios, connect with alumni, and showcase your work.",
+    "creator": {
+      "@type": "Person",
+      "name": "Arash Shalchian",
+      "url": "https://shalchian.dev",
+      "sameAs": [
+        "https://github.com/A-Shalchian",
+        "https://www.linkedin.com/in/a-shalchian/"
+      ]
+    },
+    "sourceOrganization": {
+      "@type": "CollegeOrUniversity",
+      "name": "George Brown Polytechnic",
+      "url": "https://georgebrown.ca"
+    }
+  }
+  </script>
 </head>
 
 <body>
@@ -25,19 +71,27 @@
 
     <div class="left-panel">
 
+      <h1 class="sr-only">GBP CS Webring - George Brown Polytechnic Computer Science Webring by Arash Shalchian</h1>
+
       <div class="logo-area">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/George_Brown_College_logo.svg/200px-George_Brown_College_logo.svg.png" alt="GBP Logo" />
+        <img src="./assets/husky.svg" alt="GBP Huskies" />
         <div class="logo-text">
-          <span class="logo-title">CS Webring</span>
-          <span class="logo-sub">George Brown Polytechnic</span>
+          <span class="logo-title">George Brown</span>
+          <span class="logo-sub">Polytechnic</span>
+        </div>
+        <div class="logo-divider"></div>
+        <div class="logo-text">
+          <span class="logo-ring">computer</span>
+          <span class="logo-ring">science</span>
+          <span class="logo-ring">webring</span>
         </div>
       </div>
 
       <p class="welcome-text">
         If you've studied any CS course at
-        <a href="https://georgebrown.ca" target="_blank">George Brown Polytechnic</a>,
+        <a href="https://georgebrown.ca" target="_blank" rel="noopener">George Brown Polytechnic</a>,
         add yourself to the ring by submitting a
-        <a href="#" target="_blank">pull request</a>.
+        <a href="https://github.com/A-Shalchian/gbpring" target="_blank" rel="noopener">pull request</a>.
       </p>
 
       <div class="goal-tracker">
@@ -113,7 +167,7 @@
     const devProfiles = {
       arash: {
         name: "Arash Shalchian",
-        initial: "A",
+        avatar: "https://avatars.githubusercontent.com/u/162397874?v=4",
         role: "Developer",
         bio: "CS student at George Brown Polytechnic (Class of 2026). Built this webring to connect GBP's CS community and give students a reason to ship their portfolios.",
         website: "https://shalchian.dev",
@@ -121,18 +175,23 @@
       },
       vy: {
         name: "Vy Nguyen",
-        initial: "V",
+        avatar: "https://avatars.githubusercontent.com/u/150377084?v=4",
         role: "Developer",
-        bio: "Coming soon.",
+        bio: "CS student at George Brown Polytechnic (Class of 2026). Co-building this webring to help GBP's CS community connect and showcase their work.",
         website: "https://vy-software-dev.vercel.app",
-        github: ""
+        github: "https://github.com/vynguyen175"
       }
     };
 
     function openDevModal(key) {
       const dev = devProfiles[key];
       if (!dev) return;
-      document.getElementById('dev-modal-avatar').textContent = dev.initial;
+      const avatarEl = document.getElementById('dev-modal-avatar');
+      avatarEl.innerHTML = '';
+      const img = document.createElement('img');
+      img.src = dev.avatar;
+      img.alt = dev.name;
+      avatarEl.appendChild(img);
       document.getElementById('dev-modal-name').textContent = dev.name;
       document.getElementById('dev-modal-role').textContent = dev.role;
       document.getElementById('dev-modal-bio').textContent = dev.bio;
@@ -205,6 +264,9 @@
           renderStudents();
           updateGoal();
           initVisualization();
+        })
+        .catch(() => {
+          document.getElementById('student-list').innerHTML = '<p style="color:#6b6b75;padding:12px;">Failed to load members.</p>';
         });
 
       const searchInput = document.getElementById('search');
@@ -221,6 +283,7 @@
       document.getElementById('goal-preview-btn').addEventListener('click', () => modal.classList.add('active'));
       document.getElementById('modal-close').addEventListener('click', () => modal.classList.remove('active'));
       modal.addEventListener('click', (e) => { if (e.target === modal) modal.classList.remove('active'); });
+
     });
   </script>
 </body>
